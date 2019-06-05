@@ -1,7 +1,10 @@
 # Ajax proxy
 
 A proxy server for redirecting HTTP requests from client-side code using credentials stored on the back end.
+
 Based on [Expressjs](https://expressjs.com) and [http-proxy-middleware](https://github.com/chimurai/http-proxy-middleware).
+
+Configuration instructions include steps for deploying to Heroku, but proxy can be deployed to any Node environment.
 
 ## Configuration
 
