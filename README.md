@@ -37,13 +37,13 @@ var apiOptions = {
    ```js
 var apiOptions = {
   ...
-  onProxyReq: (proxyReq) => {
-    // append key-value pair for API key to end of path
-    // using KEYNAME provided by web service
-    // and KEYVALUE stored in Heroku config var
-    proxyReq.path += ('&KEYNAME=' + process.env.KEYVALUE);
-  },
-  logLevel: 'debug' // verbose server logging
+    onProxyReq: (proxyReq) => {
+      // append key-value pair for API key to end of path
+      // using KEYNAME provided by web service
+      // and KEYVALUE stored in Heroku config var
+      proxyReq.path += ('&KEYNAME=' + process.env.KEYVALUE);
+    },
+    logLevel: 'debug' // verbose server logging
 };
    ```
 
