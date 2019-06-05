@@ -25,9 +25,9 @@ var apiOptions = {
 };
 ```
 
-   3. Deploy to Heroku using this button:
+   3. Deploy to Heroku using this button
    
-     [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+       [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
      For more information about using Heroku, check out https://devcenter.heroku.com/
 
