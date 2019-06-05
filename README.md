@@ -19,10 +19,10 @@ Based on [Expressjs](https://expressjs.com) and [http-proxy-middleware](https://
   - In the `apiOptions` object, specify the target host URL as the value for `target`.
 
 ```js
-var apiOptions = {
-  target: '', // target host ('https://www.example.com')
-  ...
-};
+  var apiOptions = {
+    target: '', // target host ('https://www.example.com')
+    ...
+  };
 ```
 
    3. Deploy to Heroku using this button
