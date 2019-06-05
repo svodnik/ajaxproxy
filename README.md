@@ -8,16 +8,14 @@ Based on [Expressjs](https://expressjs.com) and [http-proxy-middleware](https://
 1. Clone (or fork and clone) this repo.
 2. Customize index.js for your endpoint:
 
-   1. In the `filter` function, specify your app's front end origin as the value for `req.headers.origin`.
-
+  - In the `filter` function, specify your app's front end origin as the value for `req.headers.origin`.
 ```js
   // customize with origin(s) that your content will be served from
   return (req.headers.origin === 'https://www.example.com');
   // multiple origin version:
   // return ((req.headers.origin === 'http://www.example.com') || (req.headers.origin === 'https://www.example.com'));
 ```
-   
-   2. In the `apiOptions` object, specify the target host URL as the value for `target`.
+  - In the `apiOptions` object, specify the target host URL as the value for `target`.
 
 ```js
 var apiOptions = {
