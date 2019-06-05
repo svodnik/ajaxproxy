@@ -26,6 +26,7 @@ var apiOptions = {
 ```
 
    3. Deploy to Heroku using this button:
+   
      [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
      For more information about using Heroku, check out https://devcenter.heroku.com/
@@ -36,7 +37,7 @@ var apiOptions = {
 
    ```js
 var apiOptions = {
-  ...
+    ...
     onProxyReq: (proxyReq) => {
       // append key-value pair for API key to end of path
       // using KEYNAME provided by web service
