@@ -13,7 +13,8 @@ Based on [Expressjs](https://expressjs.com) and [http-proxy-middleware](https://
   // customize with origin(s) that your content will be served from
   return (req.headers.origin === 'https://www.example.com');
   // multiple origin version:
-  // return ((req.headers.origin === 'http://www.example.com') || (req.headers.origin === 'https://www.example.com'));
+  // return ((req.headers.origin === 'http://www.example.com') ||
+  //         (req.headers.origin === 'https://www.example.com'));
 ```
   - In the `apiOptions` object, specify the target host URL as the value for `target`.
 
@@ -59,7 +60,7 @@ var proxy = require('http-proxy-middleware');
 
 var filter = function (pathname, req) {
   return ((req.headers.origin === 'http://127.0.0.1:5500') ||
-    (req.headers.origin === 'https://127.0.0.1:5500'));
+          (req.headers.origin === 'https://127.0.0.1:5500'));
 };
 
 var npsOptions = {
