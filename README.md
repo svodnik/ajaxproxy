@@ -36,16 +36,16 @@ Based on [Expressjs](https://expressjs.com) and [http-proxy-middleware](https://
    5. In `index.js`, update `apiOptions.onProxyReq` to use the keyname provided by your target host and the name of the config var you created in Heroku to store your credential value.
 
 ```js
-    var apiOptions = {
-        ...
-        onProxyReq: (proxyReq) => {
-          // append key-value pair for API key to end of path
-          // using KEYNAME provided by web service
-          // and KEYVALUE stored in Heroku config var
-          proxyReq.path += ('&KEYNAME=' + process.env.KEYVALUE);
-        },
-        logLevel: 'debug' // verbose server logging
-    }; 
+  var apiOptions = {
+      ...
+      onProxyReq: (proxyReq) => {
+        // append key-value pair for API key to end of path
+        // using KEYNAME provided by web service
+        // and KEYVALUE stored in Heroku config var
+        proxyReq.path += ('&KEYNAME=' + process.env.KEYVALUE);
+      },
+      logLevel: 'debug' // verbose server logging
+  }; 
 ```
 
    6. Deploy changes to Heroku.
