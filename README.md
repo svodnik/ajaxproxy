@@ -89,11 +89,15 @@ app.listen(app.get('port'));
 
 Starting with a front-end request like
 
-```https://<HEROKU-INSTANCE>.herokuapp.com/nps/api/v1/parks?stateCode=ca';```
+```http
+https://<HEROKU-INSTANCE>.herokuapp.com/nps/api/v1/parks?stateCode=ca
+```
 
 the proxy rewrites and forwards the request as
 
-```https://developer.nps.gov/api/v1/parks?stateCode=ca&api_key=########```
+```http
+https://developer.nps.gov/api/v1/parks?stateCode=ca&api_key=########
+```
 
 (where `########` is the secret key stored in the Heroku Config Var with the name `NPS_APIKEY`)
 
