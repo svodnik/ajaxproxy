@@ -29,7 +29,7 @@ var apiOptions = {
    
        [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-     For more information about using Heroku, check out https://devcenter.heroku.com/
+  > For more information about using Heroku, check out https://devcenter.heroku.com/
 
    4. On the Heroku Dashboard, in Settings, add a Config Var to store your private credentials for the service you want to access.
 
