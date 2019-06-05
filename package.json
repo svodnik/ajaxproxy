@@ -1,0 +1,25 @@
+{
+  "description": "A minimal ajax proxy server using Express 4",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.0.0",
+    "http-proxy-middleware": "^0.19.1"
+  },
+  "engines": {
+    "ejs": "2.5.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/svodnik/ajaxproxy"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "author": "Sasha Vodnik",
+  "license": "MIT"
+}
