@@ -8,42 +8,44 @@ Configuration instructions include steps for deploying to Heroku, but proxy can 
 
 ## Configuration
 
-1. [Create a new app on Heroku](https://dashboard.heroku.com/apps).
-2. Store your API credentials using config vars.
+1. Clone this repo to your local machine.
+2. [Create a new app on Heroku](https://dashboard.heroku.com/apps).
+3. Store your API credentials using config vars.
   - On the Heroku dashboard for your app, click Settings, then click Reveal Config Vars.
   - Enter a name for the config var, paste your API key or other credential as the value, then click Add.
-3. Clone this ajaxproxy repo from GitHub to your local machine.
+
 4. Customize index.js for your endpoint:
 
   - In the `filter` function, specify your app's front end origin as the value for `req.headers.origin`.
 ```js
-  // customize with origin(s) that your content will be served from
-  return (req.headers.origin === 'https://www.example.com');
+  // replace www.myapp.example with origin(s) that your content will be served from
+  return (req.headers.origin === 'https://www.myapp.example');
   // multiple origin version:
-  // return ((req.headers.origin === 'http://www.example.com') ||
-  //         (req.headers.origin === 'https://www.example.com'));
+  // return ((req.headers.origin === 'http://myapp.example') ||
+  //         (req.headers.origin === 'https://www.myapp.example'));
 ```
   - In the `apiOptions` object, specify the URL of the web service you're connecting to as the value for `target`.
 
 ```js
   var apiOptions = {
-    target: '', // target host ('https://www.example.com')
-    ...
-  };
+    // replace api.datasource.example with the url of your target host
+    target: 'https://api.datasource.example',
+      ...
+    };
 ```
 
   - In the `apiOptions` object, update `onProxyReq` to use the keyname provided by your target host and the name of the config var you created in Heroku to store your credential value.
 
 ```js
   var apiOptions = {
-      ...
-      onProxyReq: (proxyReq) => {
-        // append key-value pair for API key to end of path
-        // using KEYNAME provided by web service
-        // and KEYVALUE stored in Heroku config var
-        proxyReq.path += ('&KEYNAME=' + process.env.KEYVALUE);
-      },
-      logLevel: 'debug' // verbose server logging
+    ...
+    onProxyReq: (proxyReq) => {
+      // append key-value pair for API key to end of path
+      // using KEYNAME provided by web service
+      // and KEYVALUE stored in Heroku config var
+      proxyReq.path += ('&KEYNAME=' + process.env.KEYVALUE);
+    },
+    logLevel: 'debug' // verbose server logging
   }; 
 ```
 

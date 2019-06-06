@@ -3,14 +3,15 @@ var proxy = require('http-proxy-middleware');
 
 // proxy middleware options
 var filter = function (pathname, req) {
-  // customize with origin(s) that your content will be served from
-  return (req.headers.origin === 'https://www.example.com');
+  // replace www.myapp.example with origin(s) that your content will be served from
+  return (req.headers.origin === 'https://www.myapp.example');
   // multiple origin version:
-  // return ((req.headers.origin === 'http://www.example.com') || (req.headers.origin === 'https://www.example.com'));   
+  // return ((req.headers.origin === 'http://www.myapp.example') || (req.headers.origin === 'https://www.myapp.example'));   
 };
 
 var apiOptions = {
-  target: '', // target host ('https://www.example.com')
+  // replace api.datasource.example with the url of your target host
+  target: 'https://api.datasource.example',
   changeOrigin: true, // needed for virtual hosted sites like Heroku
   pathRewrite: {
     '/': '/', // remove endpoint from request path ('^/api/': '/')
