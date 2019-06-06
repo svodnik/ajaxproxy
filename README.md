@@ -8,8 +8,12 @@ Configuration instructions include steps for deploying to Heroku, but proxy can 
 
 ## Configuration
 
-1. Clone (or fork and clone) this repo.
-2. Customize index.js for your endpoint:
+1. [Create a new app on Heroku](https://dashboard.heroku.com/apps).
+2. Store your API credentials using config vars.
+  - On the Heroku dashboard for your app, click Settings, then click Reveal Config Vars.
+  - Enter a name for the config var, paste your API key or other credential as the value, then click Add.
+3. Clone this ajaxproxy repo from GitHub to your local machine.
+4. Customize index.js for your endpoint:
 
   - In the `filter` function, specify your app's front end origin as the value for `req.headers.origin`.
 ```js
@@ -19,7 +23,7 @@ Configuration instructions include steps for deploying to Heroku, but proxy can 
   // return ((req.headers.origin === 'http://www.example.com') ||
   //         (req.headers.origin === 'https://www.example.com'));
 ```
-  - In the `apiOptions` object, specify the target host URL as the value for `target`.
+  - In the `apiOptions` object, specify the URL of the web service you're connecting to as the value for `target`.
 
 ```js
   var apiOptions = {
@@ -28,15 +32,7 @@ Configuration instructions include steps for deploying to Heroku, but proxy can 
   };
 ```
 
-   3. Deploy to Heroku using this button
-   
-       [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
-  > For more information about using Heroku, check out https://devcenter.heroku.com/
-
-   4. On the Heroku Dashboard, in Settings, add a Config Var to store your private credentials for the service you want to access.
-
-   5. In `index.js`, update `apiOptions.onProxyReq` to use the keyname provided by your target host and the name of the config var you created in Heroku to store your credential value.
+  - In the `apiOptions` object, update `onProxyReq` to use the keyname provided by your target host and the name of the config var you created in Heroku to store your credential value.
 
 ```js
   var apiOptions = {
@@ -51,9 +47,9 @@ Configuration instructions include steps for deploying to Heroku, but proxy can 
   }; 
 ```
 
-   6. Deploy changes to Heroku.
+   5. In your browser, return to your Heroku Dashboard, click Deploy, then follow the steps to deploy your customized code from your local machine to Heroku.
 
-   7. In the front-end code for your app, rewrite the URL in your ajax request to use your Heroku proxy app as the base URL.
+   6. In the front-end code for your app, rewrite the URL in your ajax request to use your Heroku proxy app as the base URL.
 
 ## Example
 The following code uses the U.S. [National Park Service API]().
@@ -109,13 +105,3 @@ https://developer.nps.gov/api/v1/parks?stateCode=ca&api_key=########
 [The MIT License (MIT)](https://choosealicense.com/licenses/mit/)
 
 Copyright (c) 2019 Sasha Vodnik
-
-<!-- 
-## Deploying to Heroku
-
-```
-heroku create
-git push heroku master
-heroku open
-```
--->
