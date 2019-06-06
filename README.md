@@ -30,7 +30,7 @@ Configuration instructions include steps for deploying to Heroku, but proxy can 
   var apiOptions = {
     // replace api.datasource.example with the url of your target host
     target: 'https://api.datasource.example',
-      ...
+    ...
     };
 ```
 
